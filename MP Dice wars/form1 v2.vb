@@ -29,6 +29,7 @@
         End If
         buttontoedit.Text = Str(rnddicenumber)
     End Sub
+
     Private Sub store(buttonclick)
         If attack = False And comp1 = 0 Then
             comp1 = buttonclick.text
@@ -44,6 +45,7 @@
         End If
         defend = True
     End Sub
+
     Private Sub compare(buttoncomp)
         If comp1 > comp2 Then
             buttoncomp.text = Str(comp1) - 1
