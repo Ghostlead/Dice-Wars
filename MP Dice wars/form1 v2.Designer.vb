@@ -57,10 +57,12 @@ Partial Class Form
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
+        Me.Button28 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Button1.Location = New System.Drawing.Point(287, 27)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -376,11 +378,21 @@ Partial Class Form
         Me.Button27.UseVisualStyleBackColor = True
         Me.Button27.Visible = False
         '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(534, 185)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(75, 23)
+        Me.Button28.TabIndex = 35
+        Me.Button28.Text = "End Turn"
+        Me.Button28.UseVisualStyleBackColor = True
+        '
         'Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 220)
+        Me.Controls.Add(Me.Button28)
         Me.Controls.Add(Me.Button27)
         Me.Controls.Add(Me.Button26)
         Me.Controls.Add(Me.Label8)
@@ -457,5 +469,6 @@ Partial Class Form
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Button26 As System.Windows.Forms.Button
     Friend WithEvents Button27 As System.Windows.Forms.Button
+    Friend WithEvents Button28 As System.Windows.Forms.Button
 
 End Class

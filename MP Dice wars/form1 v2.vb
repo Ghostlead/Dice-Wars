@@ -10,6 +10,7 @@
     Public playerturn As Integer
     Public attack As Boolean
     Public defend As Boolean
+    Public winner As Boolean
 
     Private Sub setup(buttontoedit)
         rnddicenumber = rnd.Next(9) + 1
@@ -129,11 +130,6 @@
             Label6.Text = Int(Label6.Text) + 1
         End If
     End Sub
-    Private Sub attackset(buttonclick)
-        If attack = True And comp2 = 0 Then
-            buttonclick.Text = 1
-        End If
-    End Sub
     Private Sub enabler(buttonenable)
         If attack = True And defend = True Then
             Dim d As Object
@@ -213,7 +209,7 @@
                         store(buttoncomp)
                     End If
                 Case 3
-                    If buttoncomp.BackColor <> System.Drawing.Color.Blue And playerturn = 3 Then
+                    If buttoncomp.backColor <> System.Drawing.Color.Blue And playerturn = 3 Then
                         MsgBox("its not your turn")
                         reset(buttoncomp)
                         enabler(buttoncomp)
@@ -231,7 +227,39 @@
             End Select
         End If
         playerturn = Str(playerturn) + 1
+        If attack = True Then
+            store(buttoncomp)
+        End If
     End Sub
+    Private Sub win(winningcolor)
+
+        Dim d As Object
+        For Each d In Me.Controls
+            If TypeOf d Is Button Then
+                If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
+                    winner = True
+                End If
+                If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
+                    winner = True
+                End If
+                If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
+                    winner = True
+                End If
+                If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
+                    winner = True
+                End If
+            End If
+        Next
+    End Sub
+
+    Private Sub turn(compcount)
+        Dim players(0 To 3) As String
+        While winner = False
+
+
+        End While
+    End Sub
+
 
     Private Sub reset(buttoncomp)
         attack = False
@@ -333,11 +361,11 @@
         comp1 = 0
         comp2 = 0
         playerturn = 1
+        win = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Disabler(Button1)
         turn(Button1)
-        attackset(Button1)
         Button2.Enabled = True
         Button9.Enabled = True
         Button10.Enabled = True
@@ -348,7 +376,6 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Disabler(Button2)
         turn(Button2)
-        attackset(Button2)
         Button1.Enabled = True
         Button9.Enabled = True
         Button10.Enabled = True
@@ -360,7 +387,6 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Disabler(Button3)
         turn(Button3)
-        attackset(Button3)
         Button2.Enabled = True
         Button4.Enabled = True
         Button9.Enabled = True
@@ -373,7 +399,6 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Disabler(Button4)
         turn(Button4)
-        attackset(Button4)
         Button4.Enabled = True
         Button8.Enabled = True
         Button7.Enabled = True
@@ -385,7 +410,6 @@
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Disabler(Button5)
         turn(Button5)
-        attackset(Button5)
         Button4.Enabled = True
         Button6.Enabled = True
         Button7.Enabled = True
@@ -395,7 +419,6 @@
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         Disabler(Button10)
         turn(Button10)
-        attackset(Button10)
         Button1.Enabled = True
         Button9.Enabled = True
         Button2.Enabled = True
@@ -407,7 +430,6 @@
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Disabler(Button9)
         turn(Button9)
-        attackset(Button9)
         Button1.Enabled = True
         Button3.Enabled = True
         Button2.Enabled = True
@@ -422,7 +444,6 @@
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Disabler(Button8)
         turn(Button8)
-        attackset(Button8)
         Button4.Enabled = True
         Button3.Enabled = True
         Button2.Enabled = True
@@ -437,7 +458,6 @@
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Disabler(Button7)
         turn(Button7)
-        attackset(Button7)
         Button4.Enabled = True
         Button3.Enabled = True
         Button5.Enabled = True
@@ -452,7 +472,6 @@
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Disabler(Button6)
         turn(Button6)
-        attackset(Button6)
         Button4.Enabled = True
         Button5.Enabled = True
         Button7.Enabled = True
@@ -464,7 +483,6 @@
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         Disabler(Button15)
         turn(Button15)
-        attackset(Button15)
         Button10.Enabled = True
         Button9.Enabled = True
         Button14.Enabled = True
@@ -476,7 +494,6 @@
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Disabler(Button14)
         turn(Button14)
-        attackset(Button14)
         Button10.Enabled = True
         Button9.Enabled = True
         Button8.Enabled = True
@@ -487,11 +504,9 @@
         Button18.Enabled = True
         enabler(Button14)
     End Sub
-
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
         Disabler(Button13)
         turn(Button13)
-        attackset(Button13)
         Button7.Enabled = True
         Button9.Enabled = True
         Button8.Enabled = True
@@ -506,7 +521,6 @@
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         Disabler(Button12)
         turn(Button12)
-        attackset(Button12)
         Button8.Enabled = True
         Button7.Enabled = True
         Button6.Enabled = True
@@ -521,7 +535,6 @@
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         Disabler(Button11)
         turn(Button11)
-        attackset(Button11)
         Button7.Enabled = True
         Button6.Enabled = True
         Button12.Enabled = True
@@ -533,7 +546,6 @@
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
         Disabler(Button20)
         turn(Button20)
-        attackset(Button20)
         Button15.Enabled = True
         Button14.Enabled = True
         Button19.Enabled = True
@@ -545,7 +557,6 @@
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
         Disabler(Button19)
         turn(Button19)
-        attackset(Button19)
         Button15.Enabled = True
         Button13.Enabled = True
         Button14.Enabled = True
@@ -560,7 +571,6 @@
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
         Disabler(Button18)
         turn(Button18)
-        attackset(Button18)
         Button14.Enabled = True
         Button13.Enabled = True
         Button12.Enabled = True
@@ -575,7 +585,6 @@
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
         Disabler(Button17)
         turn(Button17)
-        attackset(Button17)
         Button13.Enabled = True
         Button12.Enabled = True
         Button11.Enabled = True
@@ -590,7 +599,6 @@
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         Disabler(Button16)
         turn(Button16)
-        attackset(Button16)
         Button12.Enabled = True
         Button11.Enabled = True
         Button21.Enabled = True
@@ -602,7 +610,6 @@
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
         Disabler(Button25)
         turn(Button25)
-        attackset(Button25)
         Button24.Enabled = True
         Button19.Enabled = True
         Button20.Enabled = True
@@ -612,7 +619,6 @@
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
         Disabler(Button24)
         turn(Button24)
-        attackset(Button24)
         Button25.Enabled = True
         Button23.Enabled = True
         Button20.Enabled = True
@@ -624,7 +630,6 @@
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
         Disabler(Button23)
         turn(Button23)
-        attackset(Button23)
         Button24.Enabled = True
         Button22.Enabled = True
         Button17.Enabled = True
@@ -636,7 +641,6 @@
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
         Disabler(Button22)
         turn(Button22)
-        attackset(Button22)
         Button21.Enabled = True
         Button23.Enabled = True
         Button16.Enabled = True
@@ -648,7 +652,6 @@
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
         Disabler(Button21)
         turn(Button21)
-        attackset(Button21)
         Button16.Enabled = True
         Button22.Enabled = True
         Button17.Enabled = True
@@ -656,6 +659,10 @@
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+
+    End Sub
+
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
 
     End Sub
 End Class
