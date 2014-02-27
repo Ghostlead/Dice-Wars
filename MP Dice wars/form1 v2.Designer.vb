@@ -57,7 +57,6 @@ Partial Class Form
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
@@ -368,30 +367,20 @@ Partial Class Form
         '
         'Button27
         '
+        Me.Button27.Enabled = False
         Me.Button27.Location = New System.Drawing.Point(615, 185)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(75, 23)
         Me.Button27.TabIndex = 34
         Me.Button27.Text = "Button27"
         Me.Button27.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
-        Me.Label9.Location = New System.Drawing.Point(94, 194)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(13, 13)
-        Me.Label9.TabIndex = 35
-        Me.Label9.Text = "1"
-        Me.Label9.Visible = False
+        Me.Button27.Visible = False
         '
         'Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 220)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Button27)
         Me.Controls.Add(Me.Button26)
         Me.Controls.Add(Me.Label8)
@@ -468,6 +457,5 @@ Partial Class Form
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Button26 As System.Windows.Forms.Button
     Friend WithEvents Button27 As System.Windows.Forms.Button
-    Friend WithEvents Label9 As System.Windows.Forms.Label
 
 End Class
