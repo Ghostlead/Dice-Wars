@@ -11,6 +11,7 @@
     Public attack As Boolean
     Public defend As Boolean
     Public winner As Boolean
+    Public endturn As Boolean
 
     Private Sub setup(buttontoedit)
         rnddicenumber = rnd.Next(9) + 1
@@ -252,11 +253,18 @@
         Next
     End Sub
 
-    Private Sub turn(compcount)
+    Private Sub turns(compcount)
         Dim players(0 To 3) As String
         While winner = False
+            While endturn = False
 
-
+            End While
+            If playerturn > 3 Then
+                playerturn = Str(playerturn) + 1
+                If playerturn = 4 Then
+                    playerturn = 0
+                End If
+            End If
         End While
     End Sub
 
@@ -360,8 +368,8 @@
         'score(Button2)
         comp1 = 0
         comp2 = 0
-        playerturn = 1
-        win = False
+        playerturn = 0
+        winner = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Disabler(Button1)
@@ -663,6 +671,27 @@
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-
+        Select Case playerturn
+            Case 0
+                If playerturn = 0 Then
+                    Label9.Text = ("Pink")
+                End If
+            Case 1
+                If playerturn = 1 Then
+                    Label9.Text = ("Green")
+                End If
+            Case 2
+                If playerturn = 2 Then
+                    Label9.Text = ("Blue")
+                End If
+            Case 3
+                If playerturn = 3 Then
+                    Label9.Text = ("Red")
+                End If
+        End Select
+        playerturn = Str(playerturn) + 1
+        If playerturn = 4 Then
+            playerturn = 0
+        End If
     End Sub
 End Class
