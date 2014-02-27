@@ -671,24 +671,32 @@
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        Select Case playerturn
-            Case 0
-                If playerturn = 0 Then
-                    Label9.Text = ("Pink")
-                End If
-            Case 1
-                If playerturn = 1 Then
-                    Label9.Text = ("Green")
-                End If
-            Case 2
-                If playerturn = 2 Then
-                    Label9.Text = ("Blue")
-                End If
-            Case 3
-                If playerturn = 3 Then
-                    Label9.Text = ("Red")
-                End If
-        End Select
+        Dim players(0 To 3) As String
+        players(0) = ("Pink")
+        players(1) = ("Green")
+        players(2) = ("Blue")
+        players(3) = ("Red")
+
+        Label9.Text = players(playerturn)
+
+        'Select Case playerturn
+        '   Case 0
+        'If playerturn = 0 Then
+        'Label9.Text = ("Pink")
+        'End If
+        '    Case 1
+        'If playerturn = 1 Then
+        'Label9.Text = ("Green")
+        'End If
+        '    Case 2
+        'If playerturn = 2 Then
+        'Label9.Text = ("Blue")
+        'End If
+        '    Case 3
+        'If playerturn = 3 Then
+        'Label9.Text = ("Red")
+        'End If
+        ' End Select
         playerturn = Str(playerturn) + 1
         If playerturn = 4 Then
             playerturn = 0
