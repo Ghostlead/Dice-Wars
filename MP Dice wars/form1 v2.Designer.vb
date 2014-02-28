@@ -381,11 +381,11 @@ Partial Class Form
         '
         'Button28
         '
-        Me.Button28.Location = New System.Drawing.Point(534, 185)
+        Me.Button28.Location = New System.Drawing.Point(615, 185)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(75, 23)
         Me.Button28.TabIndex = 35
-        Me.Button28.Text = "End Turn"
+        Me.Button28.Text = "Start"
         Me.Button28.UseVisualStyleBackColor = True
         '
         'Label9

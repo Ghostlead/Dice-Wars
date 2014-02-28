@@ -12,6 +12,7 @@
     Public defend As Boolean
     Public winner As Boolean
     Public endturn As Boolean
+    Public players(0 To 3) As String
 
     Private Sub setup(buttontoedit)
         rnddicenumber = rnd.Next(9) + 1
@@ -52,22 +53,27 @@
         If comp1 > comp2 Then
             buttoncomp.text = Str(comp1) - 1
             buttoncomp.backcolor = Button27.BackColor
+            colorscore(buttoncomp)
         End If
         If comp1 < comp2 Then
             MsgBox("You failed and your enemy gains a dice")
             buttoncomp.text = Str(comp2) + 1
+            colorscore(buttoncomp)
         End If
         If comp1 = comp2 Then
             decider = rnd.next(10)
             If decider > 5 Then
                 buttoncomp.text = comp1
+                colorscore(buttoncomp)
             Else : buttoncomp.text = comp2
+                colorscore(buttoncomp)
             End If
         End If
         comp1 = 0
         comp2 = 0
         attack = False
         defend = False
+
     End Sub
 
     'Private Sub check(buttonclick)
@@ -193,44 +199,65 @@
     Private Sub turn(buttoncomp)
         If attack = False Then
             Select Case playerturn
-                Case 1
-                    If buttoncomp.backcolor <> System.Drawing.Color.Pink And playerturn = 1 Then
-                        MsgBox("its not your turn")
-                        reset(buttoncomp)
-                        enabler(buttoncomp)
-                    Else
-                        store(buttoncomp)
-                    End If
-                Case 2
-                    If buttoncomp.backcolor <> System.Drawing.Color.Green And playerturn = 2 Then
-                        MsgBox("its not your turn")
-                        reset(buttoncomp)
-                        enabler(buttoncomp)
-                    Else
-                        store(buttoncomp)
-                    End If
-                Case 3
-                    If buttoncomp.backColor <> System.Drawing.Color.Blue And playerturn = 3 Then
-                        MsgBox("its not your turn")
-                        reset(buttoncomp)
-                        enabler(buttoncomp)
-                    Else
-                        store(buttoncomp)
-                    End If
-                Case 4
-                    If buttoncomp.backcolor <> System.Drawing.Color.Red And playerturn = 4 Then
-                        MsgBox("its not your turn")
-                        reset(buttoncomp)
-                        enabler(buttoncomp)
-                    Else
-                        store(buttoncomp)
-                    End If
+                Case 1 And buttoncomp.backcolor = System.Drawing.Color.Pink
+                    store(buttoncomp)
+                Case 2 And buttoncomp.backcolor = System.Drawing.Color.Green
+                    store(buttoncomp)
+                Case 3 And buttoncomp.backcolor = System.Drawing.Color.Blue
+                    store(buttoncomp)
+                Case 4 And buttoncomp.backcolor = System.Drawing.Color.Red
+                    store(buttoncomp)
+                Case Else
+                    MsgBox("It is not your turn")
+                    enabler(buttoncomp)
+                    reset(buttoncomp)
+
             End Select
         End If
-        playerturn = Str(playerturn) + 1
-        If attack = True Then
-            store(buttoncomp)
-        End If
+
+
+
+
+        'If attack = False Then
+        'Select Case playerturn
+        '   Case 1
+        'If buttoncomp.backcolor <> System.Drawing.Color.Pink And playerturn = 1 Then
+        'MsgBox("its not your turn")
+        'reset(buttoncomp)
+        'enabler(buttoncomp)
+        'Else
+        'store(buttoncomp)
+        'End If
+        '    Case 2
+        'If buttoncomp.backcolor <> System.Drawing.Color.Green And playerturn = 2 Then
+        ' MsgBox("its not your turn")
+        'reset(buttoncomp)
+        'enabler(buttoncomp)
+        'Else
+        'store(buttoncomp)
+        'End If
+        '    Case 3
+        'If buttoncomp.backColor <> System.Drawing.Color.Blue And playerturn = 3 Then
+        ' MsgBox("its not your turn")
+        'reset(buttoncomp)
+        'enabler(buttoncomp)
+        'Else
+        'store(buttoncomp)
+        'End If
+        '    Case 4
+        'If buttoncomp.backcolor <> System.Drawing.Color.Red And playerturn = 4 Then
+        '    MsgBox("its not your turn")
+        'reset(buttoncomp)
+        'enabler(buttoncomp)
+        'Else
+        ' store(buttoncomp)
+        'End If
+        'End Select
+        'End If
+        'playerturn = Str(playerturn) + 1
+        'If attack = True Then
+        ' store(buttoncomp)
+        'End If
     End Sub
     Private Sub win(winningcolor)
 
@@ -253,20 +280,20 @@
         Next
     End Sub
 
-    Private Sub turns(compcount)
-        Dim players(0 To 3) As String
-        While winner = False
-            While endturn = False
-
-            End While
-            If playerturn > 3 Then
-                playerturn = Str(playerturn) + 1
-                If playerturn = 4 Then
-                    playerturn = 0
-                End If
-            End If
-        End While
-    End Sub
+    'Private Sub turns(compcount)
+    'Dim players(0 To 3) As String
+    '   While winner = False
+    '      While endturn = False
+    '
+    '       End While
+    '      If playerturn > 3 Then
+    '         playerturn = Str(playerturn) + 1
+    '        If playerturn = 4 Then
+    '           playerturn = 0
+    '      End If
+    '  End If
+    'End While
+    'End Sub
 
 
     Private Sub reset(buttoncomp)
@@ -370,6 +397,10 @@
         comp2 = 0
         playerturn = 0
         winner = False
+        players(0) = ("Pink")
+        players(1) = ("Green")
+        players(2) = ("Blue")
+        players(3) = ("Red")
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Disabler(Button1)
@@ -671,11 +702,15 @@
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        Dim players(0 To 3) As String
-        players(0) = ("Pink")
-        players(1) = ("Green")
-        players(2) = ("Blue")
-        players(3) = ("Red")
+
+        If Button28.Text = ("Start") Then
+            enabler(Button28)
+            Button28.Text = ("End Turn")
+        End If
+
+
+
+        MsgBox(players(playerturn) + "Has ended his turn")
 
         Label9.Text = players(playerturn)
 
@@ -701,5 +736,6 @@
         If playerturn = 4 Then
             playerturn = 0
         End If
+        endturn = True
     End Sub
 End Class
