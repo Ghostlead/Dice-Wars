@@ -69,11 +69,9 @@
                 colorscore(buttoncomp)
             End If
         End If
-        comp1 = 0
-        comp2 = 0
-        attack = False
-        defend = False
-
+        If comp1 > 0 And comp2 > 0 Then
+            reset(buttoncomp)
+        End If
     End Sub
 
     'Private Sub check(buttonclick)
@@ -124,18 +122,19 @@
     'End If
     'End Sub
     Private Sub colorscore(button)
-        If button.backcolor = System.Drawing.Color.Pink Then
+        If button.BackColor = System.Drawing.Color.Pink Then
             Label5.Text = Int(Label5.Text) + 1
         End If
-        If button.backcolor = System.Drawing.Color.Red Then
+        If button.BackColor = System.Drawing.Color.Red Then
             Label8.Text = Int(Label8.Text) + 1
         End If
-        If button.backcolor = System.Drawing.Color.Blue Then
+        If button.BackColor = System.Drawing.Color.Blue Then
             Label7.Text = Int(Label7.Text) + 1
         End If
-        If button.backcolor = System.Drawing.Color.Green Then
+        If button.BackColor = System.Drawing.Color.Green Then
             Label6.Text = Int(Label6.Text) + 1
         End If
+        win(button)
     End Sub
     Private Sub enabler(buttonenable)
         If attack = True And defend = True Then
@@ -209,7 +208,6 @@
                     store(buttoncomp)
                 Case Else
                     MsgBox("It is not your turn")
-                    enabler(buttoncomp)
                     reset(buttoncomp)
 
             End Select
@@ -266,15 +264,19 @@
             If TypeOf d Is Button Then
                 If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
                     winner = True
+                    MsgBox("Pink WIN'S!!!!!")
                 End If
                 If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
                     winner = True
+                    MsgBox("Green WIN'S!!!!!")
                 End If
                 If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
                     winner = True
+                    MsgBox("Red WIN'S!!!!!")
                 End If
                 If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
                     winner = True
+                    MsgBox("Blue WIN'S!!!!!")
                 End If
             End If
         Next
@@ -301,7 +303,12 @@
         defend = False
         comp1 = 0
         comp2 = 0
-        enabler(buttoncomp)
+        Dim o As Object
+        For Each o In Me.Controls
+            If TypeOf o Is Button Then
+                DirectCast(o, Button).Enabled = True
+            End If
+        Next
 
     End Sub
     'Private Sub store(buttoncomp)
@@ -703,16 +710,22 @@
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
 
-        If Button28.Text = ("Start") Then
-            enabler(Button28)
-            Button28.Text = ("End Turn")
+        If Button28.Text = ("End Turn") Then
+            MsgBox(players(playerturn) + " Has ended his turn")
+            Label9.Text = players(playerturn)
         End If
 
-
-
-        MsgBox(players(playerturn) + "Has ended his turn")
-
-        Label9.Text = players(playerturn)
+        If Button28.Text = ("Start") Then
+            MsgBox("Game Started")
+            Dim o As Object
+            For Each o In Me.Controls
+                If TypeOf o Is Button Then
+                    DirectCast(o, Button).Enabled = True
+                End If
+            Next
+            Button28.Text = ("End Turn")
+            Label9.Text = ("Pink")
+        End If
 
         'Select Case playerturn
         '   Case 0
