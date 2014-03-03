@@ -134,7 +134,6 @@
         If button.BackColor = System.Drawing.Color.Green Then
             Label6.Text = Int(Label6.Text) + 1
         End If
-        win(button)
     End Sub
     Private Sub enabler(buttonenable)
         If attack = True And defend = True Then
@@ -209,12 +208,12 @@
                 Case Else
                     MsgBox("It is not your turn")
                     reset(buttoncomp)
-
             End Select
         End If
 
-
-
+        If attack = True And comp1 > 0 Then
+            store(buttoncomp)
+        End If
 
         'If attack = False Then
         'Select Case playerturn
