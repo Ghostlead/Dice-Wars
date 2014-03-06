@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.Remoting
 Imports System.Runtime.Remoting.Channels
 Imports System.Runtime.Remoting.Channels.Tcp
+'Imports ServerClass
 
 Public Class Form
     Public rnddicecolour As Integer
@@ -454,8 +455,8 @@ Public Class Form
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim chan As TcpChannel = New TcpChannel(8085)
-        ChannelServices.RegisterChannel(chan)
+        'Dim chan As TcpChannel = New TcpChannel()
+        'ChannelServices.RegisterChannel(chan)
         setup(Button1)
         setup(Button2)
         setup(Button3)
@@ -800,6 +801,21 @@ Public Class Form
         End If
         If Button28.Text = ("Start") Then
             MsgBox("Game Started")
+            'Dim obj As myRemoteClass
+            '
+            'obj = CType(Activator.GetObject( _
+            '    Type.GetType("myRemoteClass, ServerClass"), _
+            '    "tcp://localhost:8085/RemoteTest"), myRemoteClass)
+            '
+            'If obj Is Nothing Then
+            'Console.WriteLine("Could not locate server")
+            'Else
+            'If obj.SetString("Sending String to Server") Then
+            'Console.WriteLine("Success: Check the other console to verify.")
+            'Else
+            'Console.WriteLine("Sending the test string has failed.")
+            'End If
+
             Dim o As Object
             For Each o In Me.Controls
                 If TypeOf o Is Button Then
