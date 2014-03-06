@@ -1,4 +1,8 @@
-﻿Public Class Form
+﻿Imports System.Runtime.Remoting
+Imports System.Runtime.Remoting.Channels
+Imports System.Runtime.Remoting.Channels.Tcp
+
+Public Class Form
     Public rnddicecolour As Integer
     Public rnddicenumber As Integer
     Public dicecolour As Integer
@@ -12,6 +16,7 @@
     Public defend As Boolean
     Public winner As Boolean
     Public endturn As Boolean
+    Public start As Boolean
     Public players(0 To 3) As String
 
     Private Sub setup(buttontoedit)
@@ -280,6 +285,83 @@
             End If
         Next
     End Sub
+    Private Sub Adddice(Addtobutton)
+        If Button1.Text <= 20 Then
+            Button1.Text = Str(Button1.Text) + (rnd.next(4) + 1)
+        End If
+        If Button2.Text <= 20 Then
+            Button2.Text = Str(Button2.Text) + (rnd.next(4) + 1)
+        End If
+        If Button3.Text <= 20 Then
+            Button3.Text = Str(Button3.Text) + (rnd.next(4) + 1)
+        End If
+        If Button4.Text <= 20 Then
+            Button4.Text = Str(Button4.Text) + (rnd.next(4) + 1)
+        End If
+        If Button5.Text <= 20 Then
+            Button5.Text = Str(Button5.Text) + (rnd.next(4) + 1)
+        End If
+        If Button6.Text <= 20 Then
+            Button6.Text = Str(Button6.Text) + (rnd.next(4) + 1)
+        End If
+        If Button7.Text <= 20 Then
+            Button7.Text = Str(Button7.Text) + (rnd.next(4) + 1)
+        End If
+        If Button8.Text <= 20 Then
+            Button8.Text = Str(Button8.Text) + (rnd.next(4) + 1)
+        End If
+        If Button9.Text <= 20 Then
+            Button9.Text = Str(Button9.Text) + (rnd.next(4) + 1)
+        End If
+        If Button10.Text <= 20 Then
+            Button10.Text = Str(Button10.Text) + (rnd.next(4) + 1)
+        End If
+        If Button11.Text <= 20 Then
+            Button11.Text = Str(Button11.Text) + (rnd.next(4) + 1)
+        End If
+        If Button12.Text <= 20 Then
+            Button12.Text = Str(Button12.Text) + (rnd.next(4) + 1)
+        End If
+        If Button13.Text <= 20 Then
+            Button13.Text = Str(Button13.Text) + (rnd.next(4) + 1)
+        End If
+        If Button14.Text <= 20 Then
+            Button14.Text = Str(Button14.Text) + (rnd.next(4) + 1)
+        End If
+        If Button15.Text <= 20 Then
+            Button15.Text = Str(Button15.Text) + (rnd.next(4) + 1)
+        End If
+        If Button16.Text <= 20 Then
+            Button16.Text = Str(Button16.Text) + (rnd.next(4) + 1)
+        End If
+        If Button17.Text <= 20 Then
+            Button17.Text = Str(Button17.Text) + (rnd.next(4) + 1)
+        End If
+        If Button18.Text <= 20 Then
+            Button18.Text = Str(Button18.Text) + (rnd.next(4) + 1)
+        End If
+        If Button19.Text <= 20 Then
+            Button19.Text = Str(Button19.Text) + (rnd.next(4) + 1)
+        End If
+        If Button20.Text <= 20 Then
+            Button20.Text = Str(Button20.Text) + (rnd.next(4) + 1)
+        End If
+        If Button21.Text <= 20 Then
+            Button21.Text = Str(Button21.Text) + (rnd.next(4) + 1)
+        End If
+        If Button22.Text <= 20 Then
+            Button22.Text = Str(Button22.Text) + (rnd.next(4) + 1)
+        End If
+        If Button23.Text <= 20 Then
+            Button23.Text = Str(Button23.Text) + (rnd.next(4) + 1)
+        End If
+        If Button24.Text <= 20 Then
+            Button24.Text = Str(Button24.Text) + (rnd.next(4) + 1)
+        End If
+        If Button25.Text <= 20 Then
+            Button25.Text = Str(Button25.Text) + (rnd.next(4) + 1)
+        End If
+    End Sub
 
     'Private Sub turns(compcount)
     'Dim players(0 To 3) As String
@@ -372,6 +454,8 @@
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim chan As TcpChannel = New TcpChannel(8085)
+        ChannelServices.RegisterChannel(chan)
         setup(Button1)
         setup(Button2)
         setup(Button3)
@@ -708,12 +792,12 @@
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-
-        If Button28.Text = ("End Turn") Then
-            MsgBox(players(playerturn) + " Has ended his turn")
-            Label9.Text = players(playerturn)
+        If start = True Then
+            If Button28.Text = ("End Turn") Then
+                MsgBox(players(playerturn) + " Has ended his turn")
+                Label9.Text = players(playerturn)
+            End If
         End If
-
         If Button28.Text = ("Start") Then
             MsgBox("Game Started")
             Dim o As Object
@@ -724,6 +808,7 @@
             Next
             Button28.Text = ("End Turn")
             Label9.Text = ("Pink")
+            start = True
         End If
 
         'Select Case playerturn
@@ -747,6 +832,7 @@
         playerturn = Str(playerturn) + 1
         If playerturn = 4 Then
             playerturn = 0
+            Adddice(Button28)
         End If
         endturn = True
     End Sub

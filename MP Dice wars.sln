@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MP Dice wars", "MP Dice wars\MP Dice wars.vbproj", "{D7F301F1-70B9-4E8B-B482-A89E6B0E97E3}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Server", "Server\Server.vbproj", "{C397487E-C5B8-400C-A121-B14C61C68AD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D7F301F1-70B9-4E8B-B482-A89E6B0E97E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7F301F1-70B9-4E8B-B482-A89E6B0E97E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7F301F1-70B9-4E8B-B482-A89E6B0E97E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C397487E-C5B8-400C-A121-B14C61C68AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C397487E-C5B8-400C-A121-B14C61C68AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C397487E-C5B8-400C-A121-B14C61C68AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C397487E-C5B8-400C-A121-B14C61C68AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
