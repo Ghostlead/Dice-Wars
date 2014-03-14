@@ -201,6 +201,10 @@ Public Class Form
     '    End Select
     'End Sub
     Private Sub turn(buttoncomp)
+        If attack = True And comp1 > 0 Then
+            store(buttoncomp)
+        End If
+
         If attack = False Then
             Select Case playerturn
                 Case 1 And buttoncomp.backcolor = System.Drawing.Color.Pink
@@ -217,9 +221,6 @@ Public Class Form
             End Select
         End If
 
-        If attack = True And comp1 > 0 Then
-            store(buttoncomp)
-        End If
 
         'If attack = False Then
         'Select Case playerturn
@@ -263,28 +264,45 @@ Public Class Form
         'End If
     End Sub
     Private Sub win(winningcolor)
+        If Label5.Text = 25 Then
+            MsgBox("Pink wins !!!!!!!!!")
+            End
+        End If
+        If Label6.Text = 25 Then
+            MsgBox("Green wins !!!!!!!!!")
+            End
+        End If
+        If Label7.Text = 25 Then
+            MsgBox("Blue wins !!!!!!!!!")
+            End
+        End If
+        If Label8.Text = 25 Then
+            MsgBox("Red wins !!!!!!!!!")
+            End
+        End If
 
-        Dim d As Object
-        For Each d In Me.Controls
-            If TypeOf d Is Button Then
-                If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
-                    winner = True
-                    MsgBox("Pink WIN'S!!!!!")
-                End If
-                If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
-                    winner = True
-                    MsgBox("Green WIN'S!!!!!")
-                End If
-                If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
-                    winner = True
-                    MsgBox("Red WIN'S!!!!!")
-                End If
-                If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
-                    winner = True
-                    MsgBox("Blue WIN'S!!!!!")
-                End If
-            End If
-        Next
+
+        'Dim d As Object
+        'For Each d In Me.Controls
+        'If TypeOf d Is Button Then
+        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
+        '    winner = True
+        '    MsgBox("Pink WIN'S!!!!!")
+        'End If
+        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
+        '    winner = True
+        '    MsgBox("Green WIN'S!!!!!")
+        'End If
+        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
+        '    winner = True
+        '     MsgBox("Red WIN'S!!!!!")
+        '  End If
+        '   If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
+        '        winner = True
+        '         MsgBox("Blue WIN'S!!!!!")
+        '      End If
+        '   End If
+        'Next
     End Sub
     Private Sub Adddice(Addtobutton)
         If Button1.Text <= 20 Then
@@ -789,7 +807,7 @@ Public Class Form
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
-
+        End
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
@@ -797,6 +815,8 @@ Public Class Form
             If Button28.Text = ("End Turn") Then
                 MsgBox(players(playerturn) + " Has ended his turn")
                 Label9.Text = players(playerturn)
+                comp1 = 0
+                comp2 = 0
             End If
         End If
         If Button28.Text = ("Start") Then
@@ -851,5 +871,6 @@ Public Class Form
             Adddice(Button28)
         End If
         endturn = True
+        win(Button28)
     End Sub
 End Class

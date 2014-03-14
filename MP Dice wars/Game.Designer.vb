@@ -391,7 +391,7 @@ Partial Class Form
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(75, 23)
         Me.Button26.TabIndex = 33
-        Me.Button26.Text = "Disconnect"
+        Me.Button26.Text = "Close"
         Me.Button26.UseVisualStyleBackColor = True
         '
         'Button27
