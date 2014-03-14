@@ -75,7 +75,7 @@ Public Class Form
                 colorscore(buttoncomp)
             End If
         End If
-        If comp1 > 0 And comp2 > 0 Then
+        If attack = True And defend = True Then
             reset(buttoncomp)
         End If
     End Sub
