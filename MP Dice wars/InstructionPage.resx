@@ -117,7 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>How to play:
+1. Press the start button
+2. Check if it your turn
+3. Click a colour tile that your colour
+4. Click a tile close to you that you want to try and take
+5. Once you have finish your turn click End Turn
+6. Repeat from Step 2
+
+If you don't like the tile setup then you can click start then new game.</value>
+  </data>
 </root>

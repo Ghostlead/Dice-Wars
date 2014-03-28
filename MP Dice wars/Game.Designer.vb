@@ -60,13 +60,21 @@ Partial Class Form
         Me.Button28 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.StartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EndGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InstructionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TrebleshootingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Enabled = False
         Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(287, 27)
+        Me.Button1.Location = New System.Drawing.Point(290, 42)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -76,7 +84,7 @@ Partial Class Form
         'Button2
         '
         Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(369, 27)
+        Me.Button2.Location = New System.Drawing.Point(372, 42)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 1
@@ -86,7 +94,7 @@ Partial Class Form
         'Button3
         '
         Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(451, 27)
+        Me.Button3.Location = New System.Drawing.Point(454, 42)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 2
@@ -96,7 +104,7 @@ Partial Class Form
         'Button4
         '
         Me.Button4.Enabled = False
-        Me.Button4.Location = New System.Drawing.Point(533, 27)
+        Me.Button4.Location = New System.Drawing.Point(536, 42)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 3
@@ -106,7 +114,7 @@ Partial Class Form
         'Button5
         '
         Me.Button5.Enabled = False
-        Me.Button5.Location = New System.Drawing.Point(615, 27)
+        Me.Button5.Location = New System.Drawing.Point(618, 42)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 4
@@ -116,7 +124,7 @@ Partial Class Form
         'Button6
         '
         Me.Button6.Enabled = False
-        Me.Button6.Location = New System.Drawing.Point(615, 56)
+        Me.Button6.Location = New System.Drawing.Point(618, 71)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 9
@@ -126,7 +134,7 @@ Partial Class Form
         'Button7
         '
         Me.Button7.Enabled = False
-        Me.Button7.Location = New System.Drawing.Point(533, 56)
+        Me.Button7.Location = New System.Drawing.Point(536, 71)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 8
@@ -136,7 +144,7 @@ Partial Class Form
         'Button8
         '
         Me.Button8.Enabled = False
-        Me.Button8.Location = New System.Drawing.Point(451, 56)
+        Me.Button8.Location = New System.Drawing.Point(454, 71)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(75, 23)
         Me.Button8.TabIndex = 7
@@ -146,7 +154,7 @@ Partial Class Form
         'Button9
         '
         Me.Button9.Enabled = False
-        Me.Button9.Location = New System.Drawing.Point(369, 56)
+        Me.Button9.Location = New System.Drawing.Point(372, 71)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(75, 23)
         Me.Button9.TabIndex = 6
@@ -156,7 +164,7 @@ Partial Class Form
         'Button10
         '
         Me.Button10.Enabled = False
-        Me.Button10.Location = New System.Drawing.Point(287, 56)
+        Me.Button10.Location = New System.Drawing.Point(290, 71)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(75, 23)
         Me.Button10.TabIndex = 5
@@ -166,7 +174,7 @@ Partial Class Form
         'Button11
         '
         Me.Button11.Enabled = False
-        Me.Button11.Location = New System.Drawing.Point(615, 85)
+        Me.Button11.Location = New System.Drawing.Point(618, 100)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(75, 23)
         Me.Button11.TabIndex = 14
@@ -176,7 +184,7 @@ Partial Class Form
         'Button12
         '
         Me.Button12.Enabled = False
-        Me.Button12.Location = New System.Drawing.Point(533, 85)
+        Me.Button12.Location = New System.Drawing.Point(536, 100)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(75, 23)
         Me.Button12.TabIndex = 13
@@ -186,7 +194,7 @@ Partial Class Form
         'Button13
         '
         Me.Button13.Enabled = False
-        Me.Button13.Location = New System.Drawing.Point(451, 85)
+        Me.Button13.Location = New System.Drawing.Point(454, 100)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(75, 23)
         Me.Button13.TabIndex = 12
@@ -196,7 +204,7 @@ Partial Class Form
         'Button14
         '
         Me.Button14.Enabled = False
-        Me.Button14.Location = New System.Drawing.Point(369, 85)
+        Me.Button14.Location = New System.Drawing.Point(372, 100)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(75, 23)
         Me.Button14.TabIndex = 11
@@ -206,7 +214,7 @@ Partial Class Form
         'Button15
         '
         Me.Button15.Enabled = False
-        Me.Button15.Location = New System.Drawing.Point(287, 85)
+        Me.Button15.Location = New System.Drawing.Point(290, 100)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
         Me.Button15.TabIndex = 10
@@ -216,7 +224,7 @@ Partial Class Form
         'Button16
         '
         Me.Button16.Enabled = False
-        Me.Button16.Location = New System.Drawing.Point(615, 114)
+        Me.Button16.Location = New System.Drawing.Point(618, 129)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(75, 23)
         Me.Button16.TabIndex = 19
@@ -226,7 +234,7 @@ Partial Class Form
         'Button17
         '
         Me.Button17.Enabled = False
-        Me.Button17.Location = New System.Drawing.Point(533, 114)
+        Me.Button17.Location = New System.Drawing.Point(536, 129)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(75, 23)
         Me.Button17.TabIndex = 18
@@ -236,7 +244,7 @@ Partial Class Form
         'Button18
         '
         Me.Button18.Enabled = False
-        Me.Button18.Location = New System.Drawing.Point(451, 114)
+        Me.Button18.Location = New System.Drawing.Point(454, 129)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(75, 23)
         Me.Button18.TabIndex = 17
@@ -246,7 +254,7 @@ Partial Class Form
         'Button19
         '
         Me.Button19.Enabled = False
-        Me.Button19.Location = New System.Drawing.Point(369, 114)
+        Me.Button19.Location = New System.Drawing.Point(372, 129)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(75, 23)
         Me.Button19.TabIndex = 16
@@ -256,7 +264,7 @@ Partial Class Form
         'Button20
         '
         Me.Button20.Enabled = False
-        Me.Button20.Location = New System.Drawing.Point(287, 114)
+        Me.Button20.Location = New System.Drawing.Point(290, 129)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(75, 23)
         Me.Button20.TabIndex = 15
@@ -266,7 +274,7 @@ Partial Class Form
         'Button21
         '
         Me.Button21.Enabled = False
-        Me.Button21.Location = New System.Drawing.Point(615, 143)
+        Me.Button21.Location = New System.Drawing.Point(618, 158)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(75, 23)
         Me.Button21.TabIndex = 24
@@ -276,7 +284,7 @@ Partial Class Form
         'Button22
         '
         Me.Button22.Enabled = False
-        Me.Button22.Location = New System.Drawing.Point(533, 143)
+        Me.Button22.Location = New System.Drawing.Point(536, 158)
         Me.Button22.Name = "Button22"
         Me.Button22.Size = New System.Drawing.Size(75, 23)
         Me.Button22.TabIndex = 23
@@ -286,7 +294,7 @@ Partial Class Form
         'Button23
         '
         Me.Button23.Enabled = False
-        Me.Button23.Location = New System.Drawing.Point(451, 143)
+        Me.Button23.Location = New System.Drawing.Point(454, 158)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(75, 23)
         Me.Button23.TabIndex = 22
@@ -296,7 +304,7 @@ Partial Class Form
         'Button24
         '
         Me.Button24.Enabled = False
-        Me.Button24.Location = New System.Drawing.Point(369, 143)
+        Me.Button24.Location = New System.Drawing.Point(372, 158)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(75, 23)
         Me.Button24.TabIndex = 21
@@ -306,7 +314,7 @@ Partial Class Form
         'Button25
         '
         Me.Button25.Enabled = False
-        Me.Button25.Location = New System.Drawing.Point(287, 143)
+        Me.Button25.Location = New System.Drawing.Point(290, 158)
         Me.Button25.Name = "Button25"
         Me.Button25.Size = New System.Drawing.Size(75, 23)
         Me.Button25.TabIndex = 20
@@ -316,7 +324,7 @@ Partial Class Form
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 37)
+        Me.Label1.Location = New System.Drawing.Point(37, 52)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(28, 13)
         Me.Label1.TabIndex = 25
@@ -325,7 +333,7 @@ Partial Class Form
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(34, 65)
+        Me.Label2.Location = New System.Drawing.Point(37, 80)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(36, 13)
         Me.Label2.TabIndex = 26
@@ -334,7 +342,7 @@ Partial Class Form
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(34, 94)
+        Me.Label3.Location = New System.Drawing.Point(37, 109)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
         Me.Label3.TabIndex = 27
@@ -343,7 +351,7 @@ Partial Class Form
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 123)
+        Me.Label4.Location = New System.Drawing.Point(37, 138)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(27, 13)
         Me.Label4.TabIndex = 28
@@ -352,7 +360,7 @@ Partial Class Form
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(123, 37)
+        Me.Label5.Location = New System.Drawing.Point(126, 52)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(13, 13)
         Me.Label5.TabIndex = 29
@@ -361,7 +369,7 @@ Partial Class Form
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(123, 64)
+        Me.Label6.Location = New System.Drawing.Point(126, 79)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(13, 13)
         Me.Label6.TabIndex = 30
@@ -370,7 +378,7 @@ Partial Class Form
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(123, 93)
+        Me.Label7.Location = New System.Drawing.Point(126, 108)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(13, 13)
         Me.Label7.TabIndex = 31
@@ -379,7 +387,7 @@ Partial Class Form
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(123, 122)
+        Me.Label8.Location = New System.Drawing.Point(126, 137)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(13, 13)
         Me.Label8.TabIndex = 32
@@ -387,7 +395,7 @@ Partial Class Form
         '
         'Button26
         '
-        Me.Button26.Location = New System.Drawing.Point(12, 185)
+        Me.Button26.Location = New System.Drawing.Point(15, 200)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(75, 23)
         Me.Button26.TabIndex = 33
@@ -397,7 +405,7 @@ Partial Class Form
         'Button27
         '
         Me.Button27.Enabled = False
-        Me.Button27.Location = New System.Drawing.Point(615, 185)
+        Me.Button27.Location = New System.Drawing.Point(618, 200)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(75, 23)
         Me.Button27.TabIndex = 34
@@ -407,7 +415,7 @@ Partial Class Form
         '
         'Button28
         '
-        Me.Button28.Location = New System.Drawing.Point(615, 185)
+        Me.Button28.Location = New System.Drawing.Point(618, 200)
         Me.Button28.Name = "Button28"
         Me.Button28.Size = New System.Drawing.Size(75, 23)
         Me.Button28.TabIndex = 35
@@ -417,7 +425,7 @@ Partial Class Form
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(34, 169)
+        Me.Label9.Location = New System.Drawing.Point(37, 184)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(0, 13)
         Me.Label9.TabIndex = 36
@@ -425,17 +433,64 @@ Partial Class Form
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(34, 148)
+        Me.Label10.Location = New System.Drawing.Point(37, 163)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(66, 13)
+        Me.Label10.Size = New System.Drawing.Size(94, 13)
         Me.Label10.TabIndex = 37
-        Me.Label10.Text = "Current Turn"
+        Me.Label10.Text = "CURRENT TURN"
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(746, 24)
+        Me.MenuStrip1.TabIndex = 38
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'StartToolStripMenuItem
+        '
+        Me.StartToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewGameToolStripMenuItem, Me.EndGameToolStripMenuItem})
+        Me.StartToolStripMenuItem.Name = "StartToolStripMenuItem"
+        Me.StartToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.StartToolStripMenuItem.Text = "Start"
+        '
+        'NewGameToolStripMenuItem
+        '
+        Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewGameToolStripMenuItem.Text = "New Game"
+        '
+        'EndGameToolStripMenuItem
+        '
+        Me.EndGameToolStripMenuItem.Name = "EndGameToolStripMenuItem"
+        Me.EndGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EndGameToolStripMenuItem.Text = "End Game"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstructionsToolStripMenuItem, Me.TrebleshootingToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'InstructionsToolStripMenuItem
+        '
+        Me.InstructionsToolStripMenuItem.Name = "InstructionsToolStripMenuItem"
+        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.InstructionsToolStripMenuItem.Text = "Instructions"
+        '
+        'TrebleshootingToolStripMenuItem
+        '
+        Me.TrebleshootingToolStripMenuItem.Name = "TrebleshootingToolStripMenuItem"
+        Me.TrebleshootingToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.TrebleshootingToolStripMenuItem.Text = "Troubleshooting"
         '
         'Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(746, 220)
+        Me.ClientSize = New System.Drawing.Size(746, 241)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Button28)
@@ -474,8 +529,12 @@ Partial Class Form
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form"
         Me.Text = "Multiplayer Dice Wars"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -518,5 +577,12 @@ Partial Class Form
     Friend WithEvents Button28 As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents StartToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NewGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EndGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InstructionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TrebleshootingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

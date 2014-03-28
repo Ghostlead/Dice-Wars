@@ -217,7 +217,9 @@ Public Class Form
                     store(buttoncomp)
                 Case Else
                     MsgBox("It is not your turn")
-                    reset(buttoncomp)
+                    comp1 = 0
+                    comp2 = 0
+                    attack = False
             End Select
         End If
 
@@ -872,5 +874,37 @@ Public Class Form
         End If
         endturn = True
         win(Button28)
+    End Sub
+
+    Private Sub NewGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewGameToolStripMenuItem.Click
+        setup(Button1)
+        setup(Button2)
+        setup(Button3)
+        setup(Button4)
+        setup(Button5)
+        setup(Button6)
+        setup(Button7)
+        setup(Button8)
+        setup(Button9)
+        setup(Button10)
+        setup(Button11)
+        setup(Button12)
+        setup(Button13)
+        setup(Button14)
+        setup(Button15)
+        setup(Button16)
+        setup(Button17)
+        setup(Button18)
+        setup(Button19)
+        setup(Button20)
+        setup(Button21)
+        setup(Button22)
+        setup(Button23)
+        setup(Button24)
+        setup(Button25)
+    End Sub
+
+    Private Sub InstructionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstructionsToolStripMenuItem.Click
+        InstructionPage.Show()
     End Sub
 End Class
