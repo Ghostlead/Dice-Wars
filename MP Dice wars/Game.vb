@@ -6,10 +6,8 @@ Imports System.Runtime.Remoting.Channels.Tcp
 Public Class Form
     Public rnddicecolour As Integer
     Public rnddicenumber As Integer
-    Public dicecolour As Integer
     Public comp1 As Integer
     Public comp2 As Integer
-    Public dice As Random
     Dim rnd = New Random()
     Public decider As Integer
     Public playerturn As Integer
@@ -813,6 +811,7 @@ Public Class Form
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        NewGameToolStripMenuItem.Enabled = False
         If start = True Then
             If Button28.Text = ("End Turn") Then
                 MsgBox(players(playerturn) + " Has ended his turn")
