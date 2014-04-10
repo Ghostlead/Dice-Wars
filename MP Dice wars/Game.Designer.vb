@@ -458,13 +458,13 @@ Partial Class Form
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'EndGameToolStripMenuItem
         '
         Me.EndGameToolStripMenuItem.Name = "EndGameToolStripMenuItem"
-        Me.EndGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EndGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.EndGameToolStripMenuItem.Text = "End Game"
         '
         'HelpToolStripMenuItem
@@ -532,7 +532,7 @@ Partial Class Form
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form"
-        Me.Text = "Multiplayer Dice Wars"
+        Me.Text = "Dice Wars"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

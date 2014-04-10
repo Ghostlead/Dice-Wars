@@ -1,6 +1,6 @@
-﻿Imports System.Runtime.Remoting
-Imports System.Runtime.Remoting.Channels
-Imports System.Runtime.Remoting.Channels.Tcp
+﻿'Imports System.Runtime.Remoting
+'Imports System.Runtime.Remoting.Channels
+'Imports System.Runtime.Remoting.Channels.Tcp
 'Imports ServerClass
 
 Public Class Form
@@ -19,6 +19,7 @@ Public Class Form
     Public players(0 To 3) As String
 
     Private Sub setup(buttontoedit)
+        'this setups up the game so that each button has a different colour and a different amount of dice on a tile
         rnddicenumber = rnd.Next(9) + 1
         rnddicecolour = rnd.next(4) + 1
         If rnddicecolour = 1 Then
@@ -38,6 +39,7 @@ Public Class Form
     End Sub
 
     Private Sub store(buttonclick)
+        'this stores the the numbers used for the compare then once they are stored progresses the program to the compare stage
         If attack = False And comp1 = 0 Then
             comp1 = buttonclick.text
             buttonclick.text = "1"
@@ -54,6 +56,7 @@ Public Class Form
     End Sub
 
     Private Sub compare(buttoncomp)
+        'this is where it determines who has won the compare and the changes the tiles accordingly
         If comp1 > comp2 Then
             buttoncomp.text = Str(comp1) - 1
             buttoncomp.backcolor = Button27.BackColor
@@ -78,54 +81,8 @@ Public Class Form
         End If
     End Sub
 
-    'Private Sub check(buttonclick)
-    '    If attack = False Then
-    '        store(buttonclick)
-    '    ElseIf defend = False Then
-    '        turn(buttonclick)
-    '    End If
-    'End Sub
-
-    'Private Sub check(turn)
-    ' Dim o As Object
-    'While attack = False
-    'comp1 = turn.text
-    'Button27.BackColor = turn.backcolor
-    'attack = True
-    'End While
-    'While attack = True And defend = False
-    'comp2 = turn.text
-    'defend = True
-    'End While
-    'If comp1 > comp2 Then
-    'turn.text = comp1
-    'turn.BackColor = Button27.BackColor
-    'ElseIf comp1 < comp2 Then
-    'turn.text = comp2
-    'ElseIf comp1 = comp2 Then
-    'decider = rnd.next(11)
-    'If decider > 5 Then
-    'turn.text = comp1
-    'turn.BackColor = Button27.BackColor
-    'Else : turn.text = comp2
-    'End If
-    'End If
-    'If comp1 > 0 And comp2 > 0 Then
-    'comp1 = 0
-    'comp2 = 0
-    'attack = False
-    'defend = False
-    'For Each o In Me.Controls
-    'If TypeOf o Is Button Then
-    'DirectCast(o, Button).Enabled = True
-    'End If
-    'Next
-    'End If
-    'If playerturn = 4 Then
-    'playerturn = 1
-    'End If
-    'End Sub
     Private Sub colorscore(button)
+        'this keeps track of the score
         If button.BackColor = System.Drawing.Color.Pink Then
             Label5.Text = Int(Label5.Text) + 1
         End If
@@ -140,6 +97,7 @@ Public Class Form
         End If
     End Sub
     Private Sub enabler(buttonenable)
+        'this enables all the button when it is called
         If attack = True And defend = True Then
             Dim d As Object
             For Each d In Me.Controls
@@ -149,56 +107,9 @@ Public Class Form
             Next
         End If
     End Sub
-    'Private Sub turn(buttonturn)
-    '    Select Case playerturn
-    '        Case 1
-    '            If playerturn = 1 And defend = False Then
-    '                If buttonturn.backcolor = System.Drawing.Color.Pink Then
-    '                    compare(buttonturn)
-    '                    playerturn = playerturn + 1
-    '                Else
-    '                    MsgBox("Its not your turn")
-    '                    enabler(buttonturn)
-    '                    playerturn = 1
-    '                End If
-    '            End If
-    '        Case 2
-    '           If playerturn = 2 And defend = False Then
-    '                If buttonturn.backcolor = System.Drawing.Color.Green Then
-    '                    compare(buttonturn)
-    '                    playerturn = playerturn + 1
-    '               Else
-    '                    MsgBox("Its not your turn")
-    '                    enabler(buttonturn)
-    '                    playerturn = 2
-    '                End If
-    '            End If
-    '        Case 3
-    '            If playerturn = 3 And defend = False Then
-    '                If buttonturn.backcolor = System.Drawing.Color.Blue Then
-    '                    compare(buttonturn)
-    '                    playerturn = playerturn + 1
-    '                Else
-    '                    MsgBox("Its not your turn")
-    '                    enabler(buttonturn)
-    '                    playerturn = 3
-    '                End If
-    '            End If
-    '        Case Else
-    '            If playerturn = 4 And defend = False Then
-    '                If buttonturn.backcolor = System.Drawing.Color.Red Then
-    '                    compare(buttonturn)
-    '                    playerturn = playerturn + 1
-    '                Else
-    '                    MsgBox("Its not your turn")
-    '                    enabler(buttonturn)
-    '                    playerturn = 4
-    '                End If
-    '                playerturn = 1
-    '            End If
-    '    End Select
-    'End Sub
+
     Private Sub turn(buttoncomp)
+        'this keeps track of turns and makes sure that only that colour can take his turn
         If attack = True And comp1 > 0 Then
             store(buttoncomp)
         End If
@@ -221,49 +132,9 @@ Public Class Form
             End Select
         End If
 
-
-        'If attack = False Then
-        'Select Case playerturn
-        '   Case 1
-        'If buttoncomp.backcolor <> System.Drawing.Color.Pink And playerturn = 1 Then
-        'MsgBox("its not your turn")
-        'reset(buttoncomp)
-        'enabler(buttoncomp)
-        'Else
-        'store(buttoncomp)
-        'End If
-        '    Case 2
-        'If buttoncomp.backcolor <> System.Drawing.Color.Green And playerturn = 2 Then
-        ' MsgBox("its not your turn")
-        'reset(buttoncomp)
-        'enabler(buttoncomp)
-        'Else
-        'store(buttoncomp)
-        'End If
-        '    Case 3
-        'If buttoncomp.backColor <> System.Drawing.Color.Blue And playerturn = 3 Then
-        ' MsgBox("its not your turn")
-        'reset(buttoncomp)
-        'enabler(buttoncomp)
-        'Else
-        'store(buttoncomp)
-        'End If
-        '    Case 4
-        'If buttoncomp.backcolor <> System.Drawing.Color.Red And playerturn = 4 Then
-        '    MsgBox("its not your turn")
-        'reset(buttoncomp)
-        'enabler(buttoncomp)
-        'Else
-        ' store(buttoncomp)
-        'End If
-        'End Select
-        'End If
-        'playerturn = Str(playerturn) + 1
-        'If attack = True Then
-        ' store(buttoncomp)
-        'End If
     End Sub
     Private Sub win(winningcolor)
+        ' this is the way the player wins if the label reachs 25 (number of tiles) then the game ends
         If Label5.Text = 25 Then
             MsgBox("Pink wins !!!!!!!!!")
             End
@@ -282,29 +153,10 @@ Public Class Form
         End If
 
 
-        'Dim d As Object
-        'For Each d In Me.Controls
-        'If TypeOf d Is Button Then
-        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
-        '    winner = True
-        '    MsgBox("Pink WIN'S!!!!!")
-        'End If
-        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
-        '    winner = True
-        '    MsgBox("Green WIN'S!!!!!")
-        'End If
-        'If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
-        '    winner = True
-        '     MsgBox("Red WIN'S!!!!!")
-        '  End If
-        '   If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
-        '        winner = True
-        '         MsgBox("Blue WIN'S!!!!!")
-        '      End If
-        '   End If
-        'Next
+
     End Sub
     Private Sub Adddice(Addtobutton)
+        'this makes sure that after everyone has had there turn that dice are added to each tile randomly
         If Button1.Text <= 20 Then
             Button1.Text = Str(Button1.Text) + (rnd.next(4) + 1)
         End If
@@ -382,23 +234,8 @@ Public Class Form
         End If
     End Sub
 
-    'Private Sub turns(compcount)
-    'Dim players(0 To 3) As String
-    '   While winner = False
-    '      While endturn = False
-    '
-    '       End While
-    '      If playerturn > 3 Then
-    '         playerturn = Str(playerturn) + 1
-    '        If playerturn = 4 Then
-    '           playerturn = 0
-    '      End If
-    '  End If
-    'End While
-    'End Sub
-
-
     Private Sub reset(buttoncomp)
+        'this resets all the needed parts of the program so that the compare function can compare again
         attack = False
         defend = False
         comp1 = 0
@@ -411,64 +248,16 @@ Public Class Form
         Next
 
     End Sub
-    'Private Sub store(buttoncomp)
-    '    If attack = False Then
-    '        comp1 = buttoncomp.text
-    '        Button27.BackColor = buttoncomp.BackColor
-    '        attack = True
-    '    End If
-    'End Sub
-
-    '   Private Sub compare(buttoncomp)
-    '   Dim o As Object
-    '       If defend = False Then
-    '          comp2 = buttoncomp.text
-    '         defend = True
-    '    End If
-    '       If comp1 > comp2 Then
-    '       buttoncomp.text = comp1
-    '       buttoncomp.BackColor = Button27.BackColor
-    '   ElseIf comp1 < comp2 Then
-    '       buttoncomp.text = comp2
-    '       ElseIf comp1 = comp2 Then
-    '           decider = rnd.next(11)
-    '            If decider > 5 Then
-    '                buttoncomp.text = comp1
-    '               buttoncomp.BackColor = Button27.BackColor
-    '          Else : buttoncomp.text = comp2
-    '         End If
-    '    End If
-    '   If comp1 > 0 And comp2 > 0 Then
-    '      comp1 = 0
-    '     comp2 = 0
-    '    attack = False
-    '   defend = False
-    '  For Each o In Me.Controls
-    '     If TypeOf o Is Button Then
-    '        DirectCast(o, Button).Enabled = True
-    '   End If
-    '            Next
-    '        End If
-    '        If playerturn = 4 Then
-    '            playerturn = 1
-    '        End If
-    'End Sub
-
-    'Private Sub score(buttoncolour)
-    '   If buttoncolour.backcolour = Color.Pink Then
-    '      Label5.Text = Int(Label5.Text) + 1
-    ' ElseIf buttoncolour.backcolour = Color.Red Then
-    '    Label8.Text = Int(Label8.Text) + 1
-    'End If
-    'End Sub
 
     Private Sub Disabler(buttondisable)
+        'this disables all the button in the program
         Dim o As Object
         For Each o In Me.Controls
             If TypeOf o Is Button Then
                 DirectCast(o, Button).Enabled = False
             End If
         Next
+        Button28.Enabled = True
     End Sub
 
 
@@ -811,6 +600,7 @@ Public Class Form
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+
         NewGameToolStripMenuItem.Enabled = False
         If start = True Then
             If Button28.Text = ("End Turn") Then
@@ -822,21 +612,6 @@ Public Class Form
         End If
         If Button28.Text = ("Start") Then
             MsgBox("Game Started")
-            'Dim obj As myRemoteClass
-            '
-            'obj = CType(Activator.GetObject( _
-            '    Type.GetType("myRemoteClass, ServerClass"), _
-            '    "tcp://localhost:8085/RemoteTest"), myRemoteClass)
-            '
-            'If obj Is Nothing Then
-            'Console.WriteLine("Could not locate server")
-            'Else
-            'If obj.SetString("Sending String to Server") Then
-            'Console.WriteLine("Success: Check the other console to verify.")
-            'Else
-            'Console.WriteLine("Sending the test string has failed.")
-            'End If
-
             Dim o As Object
             For Each o In Me.Controls
                 If TypeOf o Is Button Then
@@ -847,27 +622,8 @@ Public Class Form
             Label9.Text = ("Pink")
             start = True
         End If
-
-        'Select Case playerturn
-        '   Case 0
-        'If playerturn = 0 Then
-        'Label9.Text = ("Pink")
-        'End If
-        '    Case 1
-        'If playerturn = 1 Then
-        'Label9.Text = ("Green")
-        'End If
-        '    Case 2
-        'If playerturn = 2 Then
-        'Label9.Text = ("Blue")
-        'End If
-        '    Case 3
-        'If playerturn = 3 Then
-        'Label9.Text = ("Red")
-        'End If
-        ' End Select
         playerturn = Str(playerturn) + 1
-        If playerturn = 4 Then
+        If playerturn = 3 Then
             playerturn = 0
             Adddice(Button28)
         End If
@@ -906,4 +662,269 @@ Public Class Form
     Private Sub InstructionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstructionsToolStripMenuItem.Click
         InstructionPage.Show()
     End Sub
+
+    Private Sub TrebleshootingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TrebleshootingToolStripMenuItem.Click
+        MsgBox("please go here ( https://github.com/Ghostlead/Dice-Wars/wiki/Trouble-shooting )")
+    End Sub
+
+    'Private Sub check(buttonclick)
+    '    If attack = False Then
+    '        store(buttonclick)
+    '    ElseIf defend = False Then
+    '        turn(buttonclick)
+    '    End If
+    'End Sub
+
+    'Private Sub check(turn)
+    ' Dim o As Object
+    'While attack = False
+    'comp1 = turn.text
+    'Button27.BackColor = turn.backcolor
+    'attack = True
+    'End While
+    'While attack = True And defend = False
+    'comp2 = turn.text
+    'defend = True
+    'End While
+    'If comp1 > comp2 Then
+    'turn.text = comp1
+    'turn.BackColor = Button27.BackColor
+    'ElseIf comp1 < comp2 Then
+    'turn.text = comp2
+    'ElseIf comp1 = comp2 Then
+    'decider = rnd.next(11)
+    'If decider > 5 Then
+    'turn.text = comp1
+    'turn.BackColor = Button27.BackColor
+    'Else : turn.text = comp2
+    'End If
+    'End If
+    'If comp1 > 0 And comp2 > 0 Then
+    'comp1 = 0
+    'comp2 = 0
+    'attack = False
+    'defend = False
+    'For Each o In Me.Controls
+    'If TypeOf o Is Button Then
+    'DirectCast(o, Button).Enabled = True
+    'End If
+    'Next
+    'End If
+    'If playerturn = 4 Then
+    'playerturn = 1
+    'End If
+    'End Sub
+
+    'Private Sub turn(buttonturn)
+    '    Select Case playerturn
+    '        Case 1
+    '            If playerturn = 1 And defend = False Then
+    '                If buttonturn.backcolor = System.Drawing.Color.Pink Then
+    '                    compare(buttonturn)
+    '                    playerturn = playerturn + 1
+    '                Else
+    '                    MsgBox("Its not your turn")
+    '                    enabler(buttonturn)
+    '                    playerturn = 1
+    '                End If
+    '            End If
+    '        Case 2
+    '           If playerturn = 2 And defend = False Then
+    '                If buttonturn.backcolor = System.Drawing.Color.Green Then
+    '                    compare(buttonturn)
+    '                    playerturn = playerturn + 1
+    '               Else
+    '                    MsgBox("Its not your turn")
+    '                    enabler(buttonturn)
+    '                    playerturn = 2
+    '                End If
+    '            End If
+    '        Case 3
+    '            If playerturn = 3 And defend = False Then
+    '                If buttonturn.backcolor = System.Drawing.Color.Blue Then
+    '                    compare(buttonturn)
+    '                    playerturn = playerturn + 1
+    '                Else
+    '                    MsgBox("Its not your turn")
+    '                    enabler(buttonturn)
+    '                    playerturn = 3
+    '                End If
+    '            End If
+    '        Case Else
+    '            If playerturn = 4 And defend = False Then
+    '                If buttonturn.backcolor = System.Drawing.Color.Red Then
+    '                    compare(buttonturn)
+    '                    playerturn = playerturn + 1
+    '                Else
+    '                    MsgBox("Its not your turn")
+    '                    enabler(buttonturn)
+    '                    playerturn = 4
+    '                End If
+    '                playerturn = 1
+    '            End If
+    '    End Select
+    'End Sub
+
+    'If attack = False Then
+    'Select Case playerturn
+    '   Case 1
+    'If buttoncomp.backcolor <> System.Drawing.Color.Pink And playerturn = 1 Then
+    'MsgBox("its not your turn")
+    'reset(buttoncomp)
+    'enabler(buttoncomp)
+    'Else
+    'store(buttoncomp)
+    'End If
+    '    Case 2
+    'If buttoncomp.backcolor <> System.Drawing.Color.Green And playerturn = 2 Then
+    ' MsgBox("its not your turn")
+    'reset(buttoncomp)
+    'enabler(buttoncomp)
+    'Else
+    'store(buttoncomp)
+    'End If
+    '    Case 3
+    'If buttoncomp.backColor <> System.Drawing.Color.Blue And playerturn = 3 Then
+    ' MsgBox("its not your turn")
+    'reset(buttoncomp)
+    'enabler(buttoncomp)
+    'Else
+    'store(buttoncomp)
+    'End If
+    '    Case 4
+    'If buttoncomp.backcolor <> System.Drawing.Color.Red And playerturn = 4 Then
+    '    MsgBox("its not your turn")
+    'reset(buttoncomp)
+    'enabler(buttoncomp)
+    'Else
+    ' store(buttoncomp)
+    'End If
+    'End Select
+    'End If
+    'playerturn = Str(playerturn) + 1
+    'If attack = True Then
+    ' store(buttoncomp)
+    'End If
+
+    'Dim d As Object
+    'For Each d In Me.Controls
+    'If TypeOf d Is Button Then
+    'If DirectCast(d, Button).BackColor = System.Drawing.Color.Pink Then
+    '    winner = True
+    '    MsgBox("Pink WIN'S!!!!!")
+    'End If
+    'If DirectCast(d, Button).BackColor = System.Drawing.Color.Green Then
+    '    winner = True
+    '    MsgBox("Green WIN'S!!!!!")
+    'End If
+    'If DirectCast(d, Button).BackColor = System.Drawing.Color.Red Then
+    '    winner = True
+    '     MsgBox("Red WIN'S!!!!!")
+    '  End If
+    '   If DirectCast(d, Button).BackColor = System.Drawing.Color.Blue Then
+    '        winner = True
+    '         MsgBox("Blue WIN'S!!!!!")
+    '      End If
+    '   End If
+    'Next
+
+    'Private Sub turns(compcount)
+    'Dim players(0 To 3) As String
+    '   While winner = False
+    '      While endturn = False
+    '
+    '       End While
+    '      If playerturn > 3 Then
+    '         playerturn = Str(playerturn) + 1
+    '        If playerturn = 4 Then
+    '           playerturn = 0
+    '      End If
+    '  End If
+    'End While
+    'End Sub
+
+    'Private Sub store(buttoncomp)
+    '    If attack = False Then
+    '        comp1 = buttoncomp.text
+    '        Button27.BackColor = buttoncomp.BackColor
+    '        attack = True
+    '    End If
+    'End Sub
+
+    '   Private Sub compare(buttoncomp)
+    '   Dim o As Object
+    '       If defend = False Then
+    '          comp2 = buttoncomp.text
+    '         defend = True
+    '    End If
+    '       If comp1 > comp2 Then
+    '       buttoncomp.text = comp1
+    '       buttoncomp.BackColor = Button27.BackColor
+    '   ElseIf comp1 < comp2 Then
+    '       buttoncomp.text = comp2
+    '       ElseIf comp1 = comp2 Then
+    '           decider = rnd.next(11)
+    '            If decider > 5 Then
+    '                buttoncomp.text = comp1
+    '               buttoncomp.BackColor = Button27.BackColor
+    '          Else : buttoncomp.text = comp2
+    '         End If
+    '    End If
+    '   If comp1 > 0 And comp2 > 0 Then
+    '      comp1 = 0
+    '     comp2 = 0
+    '    attack = False
+    '   defend = False
+    '  For Each o In Me.Controls
+    '     If TypeOf o Is Button Then
+    '        DirectCast(o, Button).Enabled = True
+    '   End If
+    '            Next
+    '        End If
+    '        If playerturn = 4 Then
+    '            playerturn = 1
+    '        End If
+    'End Sub
+
+    'Private Sub score(buttoncolour)
+    '   If buttoncolour.colour = Color.Pink Then
+    '      Label5.Text = Int(Label5.Text) + 1
+    ' ElseIf buttoncolour.colour = Color.Red Then
+    '    Label8.Text = Int(Label8.Text) + 1
+    'End If
+    'End Sub
+
+    'Dim obj As myRemoteClass
+    '
+    'obj = CType(Activator.GetObject( _
+    '    Type.GetType("myRemoteClass, ServerClass"), _
+    '    "tcp://localhost:8085/RemoteTest"), myRemoteClass)
+    '
+    'If obj Is Nothing Then
+    'Console.WriteLine("Could not locate server")
+    'Else
+    'If obj.SetString("Sending String to Server") Then
+    'Console.WriteLine("Success: Check the other console to verify.")
+    'Else
+    'Console.WriteLine("Sending the test string has failed.")
+    'End If
+
+    'Select Case playerturn
+    '   Case 0
+    'If playerturn = 0 Then
+    'Label9.Text = ("Pink")
+    'End If
+    '    Case 1
+    'If playerturn = 1 Then
+    'Label9.Text = ("Green")
+    'End If
+    '    Case 2
+    'If playerturn = 2 Then
+    'Label9.Text = ("Blue")
+    'End If
+    '    Case 3
+    'If playerturn = 3 Then
+    'Label9.Text = ("Red")
+    'End If
+    ' End Select
 End Class
